@@ -8,18 +8,14 @@ Script used to interact with odoo
 Just clone the repo where you want
 
 ```shell
-cd ~
 mkdir sqq
 cd sqq
 git clone https://github.com/superquinquin/odoo-scripts.git 
+cd odoo-scripts
 ```
 
-### Packages
-
 ### Virtualenv
-You need to have python3
-
-Package requirements are handled using pip. To install them do :
+You need to have python3. Package requirements are handled using pip. To install them do :
 
 ```shell
 virtualenv -p python3 ~/venv/sqq
@@ -29,7 +25,7 @@ pip install -r requirements.txt
 
 ### Odoo configuration
 You need to edit ~/.odoo.conf and add a section related to the odoo instance.
-Eg
+Eg:
 
 ```shell
 [sqq-prod]
