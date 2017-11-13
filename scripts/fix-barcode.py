@@ -12,6 +12,7 @@ logger = Logger(min_log_level_to_mail=None,
                 min_log_level_to_save=logging.DEBUG,
                 min_log_level_to_print=logging.DEBUG)
 
+
 @click.command()
 @click.option('--endpoint', prompt='Odoo conf to use :', default='sqq-recette', help='Section of ~/.odoo.conf to use')
 @click.option('--dry', prompt='Activate dry mode ?', default=False, is_flag=True, help='Do not commit shit')
@@ -29,7 +30,7 @@ def fix_barcode(endpoint, dry):
     for product_id in product_ids:
         product = odoo_client.browse('product.product', product_id)
         logger.new_iteration(prefix='id={0} name={1}'.format(product_id,
-							     product.name))
+                                                             product.name))
         old_barcode = product.barcode
 
         if not old_barcode:
@@ -47,8 +48,6 @@ def fix_barcode(endpoint, dry):
         else:
             product.barcode = new_barcode
     logger.del_loop_logger()
-
-
 
 
 if __name__ == "__main__":
